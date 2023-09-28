@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import HomePage from "../components/pages/HomePage";
 import LoginPage from "../components/pages/LoginPage";
 import RegisterPage from "../components/pages/RegisterPage";
+import Authenticated from "../components/Authenticated";
 
 //like switch case
 //Header has a children /w login&register
@@ -27,7 +28,14 @@ const router = createBrowserRouter([
       </>
     ),
     children: [
-      { path: "/", element: <HomePage /> },
+      {
+        path: "",
+        element: (
+          <Authenticated>
+            <HomePage />{" "}
+          </Authenticated>
+        ),
+      },
       { path: "/login", element: <LoginPage /> },
       { path: "/register", element: <RegisterPage /> },
     ],
